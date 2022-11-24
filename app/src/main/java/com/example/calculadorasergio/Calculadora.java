@@ -249,6 +249,10 @@ public class Calculadora extends AppCompatActivity {
                     }
                     if (introducido.getText().toString().equals("0")){
                         resultado.setText("No se puede dividir entre 0");
+                        introducido.setText("");
+                        number1 = 0;
+                        number2 = 0;
+                        resultNum = 0;
                     }
                     else {
                         float numIntro = Float.parseFloat(introducido.getText().toString());
@@ -304,14 +308,21 @@ public class Calculadora extends AppCompatActivity {
             public void onClick(View view) {
                 punto = true;
                 if(number1 == 0 && number2 == 0){
-                    float numIntro = Float.parseFloat(introducido.getText().toString());
-                    number2 = numIntro;
-                    resultado.setText(String.valueOf(number2));
+                    resultado.setText(String.valueOf(0));
 
                 }
 
                 else if (resultado.getText().toString().equals("No se puede dividir entre 0")){
                     resultado.setText(String.valueOf(0));
+                    introducido.setText("");
+                    number1 = 0;
+                    number2 = 0;
+                    resultNum = 0;
+
+                }
+
+                else if (resultado.getText().toString().equals("")){
+                    resultado.setText(0);
 
                 }
 
