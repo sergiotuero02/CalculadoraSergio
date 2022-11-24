@@ -228,8 +228,8 @@ public class Calculadora extends AppCompatActivity {
 
                     } else if (number1 != 0) {
                         number2 = numIntro;
-                        resultNum = number1 + number2;
-                        resultado.setText(number1 + "+" + number2 + "=" + resultNum);
+                        resultNum = number1 - number2;
+                        resultado.setText(number1 + "-" + number2 + "=" + resultNum);
 
                     }
                 }
@@ -280,27 +280,30 @@ public class Calculadora extends AppCompatActivity {
         btnPor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (introducido.getText().toString().equals("")) {
+                if(introducido.getText().toString().equals("")){
                     introducido.setText("");
-                } else {
+                }
+                else {
                     float numIntro = Float.parseFloat(introducido.getText().toString());
                     if (number1 == 0) {
                         number1 = numIntro;
                         resultNum = number1;
                         resultado.setText(String.valueOf(resultNum) + "*");
+
                     } else if (number1 != 0) {
                         number2 = numIntro;
-                        resultNum = number1 + number2;
-                        resultado.setText(number1 + "+" + number2 + "=" + resultNum);
+                        resultNum = number1 * number2;
+                        resultado.setText(number1 + "*" + number2 + "=" + resultNum);
 
                     }
-                    operador = 3;
-                    number1 = number1 * number2;
-                    number2 = 0;
-                    introducido.setText("");
+                }
+                operador = 3;
+                number1 = resultNum;
+                number2 = 0;
+                introducido.setText("");
 
                 }
-            }
+
         });
 
         btnIgual.setOnClickListener(new View.OnClickListener() {
@@ -310,6 +313,9 @@ public class Calculadora extends AppCompatActivity {
                 if(number1 == 0 && number2 == 0){
                     resultado.setText(String.valueOf(0));
 
+                }
+                else if (introducido.getText().toString().equals("")){
+                    resultado.setText(String.valueOf(resultNum));
                 }
 
                 else if (resultado.getText().toString().equals("No se puede dividir entre 0")){
