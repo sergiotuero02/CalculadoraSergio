@@ -247,7 +247,7 @@ public class Calculadora extends AppCompatActivity {
                     if (introducido.getText().toString().equals("")) {
                         introducido.setText("");
                     }
-                    if (introducido.getText().toString().equals("0")){
+                    else if (introducido.getText().toString().equals("0")){
                         resultado.setText("No se puede dividir entre 0");
                         introducido.setText("");
                         number1 = 0;
