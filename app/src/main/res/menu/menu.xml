@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/MnOp1" android:title="Inicio"/>
-    <item android:id="@+id/MnOp2" android:title="Calculadora"/>
-    <item android:id="@+id/MnOp3" android:title="Contacto"/>
+    <item android:id="@+id/MnOp2" android:title="Calculadora">
+        <menu>
+            <item android:id="@+id/MnOp2_1" android:title="Calculadora"></item>
+            <item android:id="@+id/MnOp2_2" android:title="Calculadora online"></item>
+        </menu>
+    </item>
+    <item android:id="@+id/MnOp3" android:title="Contacto">
+        <menu>
+            <item android:id="@+id/MnOp3_1" android:title="Formulario"></item>
+            <item android:id="@+id/MnOp3_2" android:title="Gmail"></item>
+        </menu>
+    </item>
 
 </menu>

@@ -3,6 +3,7 @@ package com.example.calculadorasergio;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.MenuInflater;
@@ -48,6 +49,7 @@ public class Calculadora extends AppCompatActivity {
         Button btnIgual = (Button) findViewById(R.id.btnIgual);
         Button btnBorrar = (Button) findViewById(R.id.btnBorrar);
         Button btnPunto = (Button) findViewById(R.id.btnPunto);
+        Button btnCuadrado = (Button) findViewById(R.id.btnCuadrado);
 
         ImageView menuimg = (ImageView) findViewById(R.id.imageView2);
         registerForContextMenu(menuimg);
@@ -306,6 +308,21 @@ public class Calculadora extends AppCompatActivity {
 
         });
 
+        btnCuadrado.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(introducido.getText().toString().equals("")){
+                    introducido.setText("");
+                }
+                else {
+                    float texto = Float.parseFloat(introducido.getText().toString());
+                    introducido.setText(String.valueOf(texto*texto));
+
+                    }
+
+                }
+        });
+
         btnIgual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -382,23 +399,37 @@ public class Calculadora extends AppCompatActivity {
 
                 Intent intent1 = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent1);
-                return true;
+                break;
 
-            case R.id.MnOp2:
+            case R.id.MnOp2_1:
 
-                Intent intent2 = new Intent(getApplicationContext(), Calculadora.class);
-                startActivity(intent2);
-                return true;
+                Intent intent2_1 = new Intent(getApplicationContext(), Calculadora.class);
+                startActivity(intent2_1);
+                break;
 
-            case R.id.MnOp3:
+            case R.id.MnOp2_2:
+
+                Intent intent2_2 = new Intent(Intent.ACTION_VIEW, Uri.parse("https://web2.0calc.es/"));
+                startActivity(intent2_2);
+                break;
+
+
+            case R.id.MnOp3_1:
 
                 Intent intent3 = new Intent(getApplicationContext(), Contacto.class);
                 startActivity(intent3);
-                return true;
+                break;
+
+            case R.id.MnOp3_2:
+                Intent intent3_2 = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/intl/es/gmail/about/"));
+                startActivity(intent3_2);
+                break;
 
             default: return super.onOptionsItemSelected(item);
 
         }
+        return true;
+
     }
 
 
